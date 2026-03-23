@@ -1,16 +1,51 @@
-# React + Vite
+# 💼 Eden Nigatu Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio website built with **React + Vite + TailwindCSS** showcasing my work in **Backend Development, Machine Learning, and AI Research**.
 
-Currently, two official plugins are available:
+## 🚀 About This Project
+This portfolio highlights my software engineering projects, machine learning work, and technical skills.  
+It includes projects in NLP, backend systems, and data science, along with my resume and contact information.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Tech Stack
+- React
+- Vite
+- TailwindCSS
+- JavaScript
+- HTML & CSS
+- Git & GitHub
 
-## React Compiler
+## 📂 Features
+- Responsive modern UI
+- Dark / Light mode
+- Animated skills marquee
+- Projects section
+- Resume download
+- Contact section
+- Smooth scrolling navigation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🧠 Skills Highlighted
+- Python
+- Machine Learning
+- Deep Learning
+- Natural Language Processing (NLP)
+- Backend Development
+- REST APIs / FastAPI
+- MySQL
+- Docker
+- TensorFlow / PyTorch
+- Data Structures & Algorithms
 
-## Expanding the ESLint configuration
+## 📄 Resume
+You can view or download my resume from the website.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📬 Contact
+If you'd like to collaborate, work together, or discuss opportunities, feel free to reach out through the contact section on the website.
+
+## ⚙️ Run Locally
+Clone the project and run:
+
+```bash
+git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
+cd YOUR_REPO
+npm install
+npm run dev
