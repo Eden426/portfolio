@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+/* =========================
+   DARK MODE (Pure Neutral)
+   ========================= */
+:root {
+  --color-background: #000000; 
+  --color-foreground: #ffffff;
+  --color-heading: #ffffff;
+  --color-card: #0a0a0a;
+  --color-primary: #ffffff;    
+  --color-primary-foreground: #000000;
+  --color-secondary: #111111;  
+  --color-secondary-foreground: #ffffff;
+  --color-muted: #1a1a1a;
+  --color-muted-foreground: #a1a1aa;
+  --color-border: #262626;     
+  --radius: 0.75rem;
+}
+
+/* =========================
+   LIGHT MODE (Charcoal & Platinum)
+   ========================= */
+.light {
+  --color-background: #f4f4f4; 
+  --color-foreground: #181818;
+  --color-heading: #181818; 
+  --color-card: #ffffff;
+  --color-primary: #363635;            
+  --color-primary-foreground: #E6E5E3; 
+  --color-secondary: #EAEAEA;          
+  --color-secondary-foreground: #363635;
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #475569;
+  --color-border: #D1D1D1;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    transition: background-color 0.3s ease;
+  }
+}
+
+@layer components {
+  .glass {
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-border);
+  }
+
+  .light .glass {
+    background: #fdfdfd;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  }
+
+  .bg-grid-pattern {
+    background-image: radial-gradient(var(--color-border) 1.5px, transparent 1.5px);
+    background-size: 32px 32px;
+  }
+
+  /* --- Timeline Specifics --- */
+  .timeline-container {
+    position: relative;
+    padding-left: 1.5rem; /* Gap for the line */
+  }
+
+  .timeline-line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: -3rem; /* Extends to connect gaps */
+    width: 1px;
+    background: var(--color-border);
+    z-index: 1;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: -4px; 
+    top: 2.5rem;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    box-shadow: 0 0 10px var(--color-primary);
+    z-index: 10;
+  }
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: "Inter", sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  h1, h2, h3, h4, h5, h6 { font-weight: 700; color: var(--color-heading); }
+  ::placeholder { color: var(--color-muted-foreground); opacity: 1; }
+}
+
+@layer components {
+  .bg-background { background-color: var(--color-background); }
+  .border-border { border-color: var(--color-border); }
+}
+
+@layer utilities {
+  @keyframes fade-in { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .animate-fade-in { animation: fade-in 0.8s ease-out both; }
+}
