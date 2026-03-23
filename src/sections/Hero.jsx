@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button } from "@/components/Button"; // Adjust import if needed
+import { Button } from "@/components/Button";
 import {
   ArrowRight,
   ChevronDown,
@@ -7,7 +7,7 @@ import {
   Linkedin,
   Download,
 } from "lucide-react";
-import { AnimatedBorderButton } from "../components/AnimatedBorderButton"; // Adjust import if needed
+import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
 import { SiLeetcode, SiHackerrank } from "react-icons/si";
 
 const skills = [
@@ -41,10 +41,8 @@ export const Hero = () => {
       setIsLight(document.documentElement.classList.contains("light"));
     };
 
-    // Initial check
     checkTheme();
 
-    // Listen for theme changes dynamically
     const observer = new MutationObserver(checkTheme);
     observer.observe(document.documentElement, {
       attributes: true,
@@ -104,7 +102,8 @@ export const Hero = () => {
                 </span>
               </h1>
 
-              <p className="text-lg text-muted max-w-lg animate-fade-in animation-delay-200">
+              {/* FIXED LIGHT MODE TEXT */}
+              <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200">
                 Hi, I'm Eden Nigatu — a software engineer specializing in
                 backend development and machine learning. I design scalable
                 systems, develop intelligent models, and contribute to AI
@@ -154,10 +153,9 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column (Profile Image) */}
+          {/* Right Column */}
           <div className="relative animate-fade-in animation-delay-300">
             <div className="relative max-w-sm mx-auto">
-              {/* Note: The glowing green background blur div was removed from here */}
               <div className="relative glass rounded-3xl p-2 glow-border">
                 <img
                   src="/profile-photo.jpg"
@@ -165,7 +163,6 @@ export const Hero = () => {
                   className="w-full h-[420px] object-cover object-center rounded-2xl"
                 />
 
-                {/* Availability Badge */}
                 <div className="absolute top-4 left-4 glass rounded-xl px-4 py-2 animate-float">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
@@ -175,7 +172,6 @@ export const Hero = () => {
                   </div>
                 </div>
 
-                {/* Experience Badge */}
                 <div className="absolute top-4 right-4 glass rounded-xl px-4 py-2 animate-float animation-delay-500">
                   <div
                     className="text-lg font-bold"
