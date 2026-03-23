@@ -10,6 +10,11 @@ import {
 import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
 import { SiLeetcode, SiHackerrank } from "react-icons/si";
 
+// 1. IMPORT YOUR ASSETS HERE
+import heroBg from "/hero-bg.jpg";
+import profilePhoto from "/profile-photo.jpg";
+import resumePdf from "/resume.pdf";
+
 const skills = [
   "Python",
   "Data Preprocessing",
@@ -40,15 +45,12 @@ export const Hero = () => {
     const checkTheme = () => {
       setIsLight(document.documentElement.classList.contains("light"));
     };
-
     checkTheme();
-
     const observer = new MutationObserver(checkTheme);
     observer.observe(document.documentElement, {
       attributes: true,
       attributeFilter: ["class"],
     });
-
     return () => observer.disconnect();
   }, []);
 
@@ -58,7 +60,7 @@ export const Hero = () => {
       {!isLight && (
         <div className="absolute inset-0 overflow-hidden">
           <img
-            src="/hero-bg.jpg"
+            src={heroBg} // 2. USED IMPORTED VARIABLE
             alt="Hero background"
             className="w-full h-full object-cover object-[center_20%] opacity-50"
           />
@@ -84,7 +86,6 @@ export const Hero = () => {
               </span>
             </div>
 
-            {/* Headline */}
             <div className="space-y-4">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in animation-delay-100 text-heading">
                 Building{" "}
@@ -102,18 +103,17 @@ export const Hero = () => {
                 </span>
               </h1>
 
-              {/* FIXED LIGHT MODE TEXT */}
               <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200">
                 Hi, I'm Eden Nigatu — a software engineer specializing in
-                backend development and machine learning. I design scalable
-                systems, develop intelligent models, and contribute to AI
-                research that solves real-world problems.
+                backend development and machine learning.
               </p>
             </div>
 
             {/* Resume CTA */}
             <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+              <a href={resumePdf} target="_blank" rel="noopener noreferrer">
+                {" "}
+                {/* 3. USED IMPORTED VARIABLE */}
                 <AnimatedBorderButton>
                   <Download className="w-5 h-5 mr-2" />
                   View Resume
@@ -124,7 +124,6 @@ export const Hero = () => {
             {/* Social Links */}
             <div className="flex items-center gap-4 animate-fade-in animation-delay-400">
               <span className="text-sm text-muted">Follow me: </span>
-
               {[
                 { icon: Github, href: "https://github.com/Eden426" },
                 {
@@ -158,7 +157,7 @@ export const Hero = () => {
             <div className="relative max-w-sm mx-auto">
               <div className="relative glass rounded-3xl p-2 glow-border">
                 <img
-                  src="/profile-photo.jpg"
+                  src={profilePhoto} // 4. FIXED PATH AND USED IMPORTED VARIABLE
                   alt="Eden Nigatu"
                   className="w-full h-[420px] object-cover object-center rounded-2xl"
                 />
@@ -171,53 +170,10 @@ export const Hero = () => {
                     </span>
                   </div>
                 </div>
-
-                <div className="absolute top-4 right-4 glass rounded-xl px-4 py-2 animate-float animation-delay-500">
-                  <div
-                    className="text-lg font-bold"
-                    style={{ color: "var(--color-primary)" }}
-                  >
-                    3+
-                  </div>
-                  <div className="text-xs text-muted">Years Exp.</div>
-                </div>
               </div>
             </div>
           </div>
         </div>
-
-        {/* Skills Marquee */}
-        <div className="mt-20 animate-fade-in animation-delay-600">
-          <p className="text-sm text-muted mb-6 text-center">
-            Technologies I work with
-          </p>
-
-          <div className="relative overflow-hidden">
-            <div className="absolute left-0 top-0 bottom-0 w-32 z-10 fade-edges-left" />
-            <div className="absolute right-0 top-0 bottom-0 w-32 z-10 fade-edges-right" />
-
-            <div className="flex animate-marquee">
-              {[...skills, ...skills].map((skill, idx) => (
-                <div key={idx} className="flex-shrink-0 px-8 py-4">
-                  <span className="text-xl font-semibold text-muted opacity-60 hover:opacity-100 hover:text-foreground transition-all cursor-default">
-                    {skill}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Scroll Down */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in animation-delay-800">
-        <a
-          href="#about"
-          className="flex flex-col items-center gap-2 text-muted hover:text-foreground transition-colors group"
-        >
-          <span className="text-xs uppercase tracking-wider">Scroll</span>
-          <ChevronDown className="w-6 h-6 animate-bounce" />
-        </a>
       </div>
     </section>
   );
